@@ -1,0 +1,32 @@
+{
+  "name": "angular-tutorial",
+  "version": "1.0.0",
+  "description": "AngularJS tutorial implementation from https://docs.angularjs.org/tutorial",
+  "main": "index.js",
+  "license": "MIT",
+
+  "author": {
+    "name": "Eugene Karanda",
+    "email": "eugene.karanda@gmail.com",
+    "url": "https://github.com/eugene-karanda"
+  },
+
+  "keywords": [
+    "angularjs",
+    "npm",
+    "bower",
+    "karma",
+    "jasmine"
+  ],
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eugene-karanda/angular-tutorial.git"
+  },
+
+  "bugs": {
+    "url": "https://github.com/eugene-karanda/angular-tutorial/issues"
+  },
+
+  "homepage": "https://github.com/eugene-karanda/angular-tutorial#readme"
+}
