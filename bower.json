@@ -1,0 +1,32 @@
+{
+  "name": "angular-tutorial",
+  "description": "AngularJS tutorial implementation from https://docs.angularjs.org/tutorial",
+  "authors": [
+    {
+      "name": "Eugene Karanda",
+      "email": "eugene.karanda@gmail.com",
+      "homepage": "https://github.com/eugene-karanda"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angularjs",
+    "npm",
+    "bower",
+    "karma",
+    "jasmine"
+  ],
+  "homepage": "https://github.com/eugene-karanda/angular-tutorial",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3"
+  }
+}

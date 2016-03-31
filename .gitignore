@@ -1,8 +1,12 @@
 # Created by .ignore support plugin (hsz.mobi)
 
-### JetBrains templates
+### JetBrains
 .idea/
 
-### NodeJS templates
+### NodeJS
 node_modules/
 npm-debug.log
+
+### Bower
+
+bower_components/
