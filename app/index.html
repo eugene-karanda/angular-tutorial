@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+    <script type="application/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="application/javascript" src="js/controllers.js"></script>
 </head>
-<body>
-    <p>Static Template</p>
+<body ng-app="tutorialApplication">
+<div ng-controller="phoneListController">
+    <ul>
+        <li ng-repeat="phone in phones">
+            <span>{{phone.name}}</span>
+            <p>{{phone.snippet}}</p>
+        </li>
+    </ul>
+</div>
 </body>
 </html>
