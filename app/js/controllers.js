@@ -21,4 +21,12 @@ tutorialApplication.controller('PhoneListController', function ($scope) {
     ];
     
     $scope.filtered = '';
+
+    $scope.$watch('query', function (newValue) {
+        if(newValue == null) {
+            $scope.title = 'Phone Gallery';
+        } else {
+            $scope.title = 'Phone Gallery: ' + newValue;
+        }
+    })
 });

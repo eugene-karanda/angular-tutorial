@@ -26,10 +26,10 @@ describe('Tutorial Application', function() {
 
         it('should display the current filter value in the title bar', function() {
             query.clear();
-            expect(browser.getTitle()).toMatch('Google Phone Gallery:');
+            expect(browser.getTitle()).toMatch('Phone Gallery');
 
             query.sendKeys('nexus');
-            expect(browser.getTitle()).toMatch('Google Phone Gallery: nexus');
+            expect(browser.getTitle()).toMatch('Phone Gallery: nexus');
         });
     });
 });
