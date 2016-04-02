@@ -1,6 +1,8 @@
 {
   "name": "angular-tutorial",
   "description": "AngularJS tutorial implementation from https://docs.angularjs.org/tutorial",
+  "license": "MIT",
+  "homepage": "https://github.com/eugene-karanda/angular-tutorial",
   "authors": [
     {
       "name": "Eugene Karanda",
@@ -8,7 +10,6 @@
       "homepage": "https://github.com/eugene-karanda"
     }
   ],
-  "license": "MIT",
   "keywords": [
     "angularjs",
     "npm",
@@ -16,7 +17,6 @@
     "karma",
     "jasmine"
   ],
-  "homepage": "https://github.com/eugene-karanda/angular-tutorial",
   "moduleType": [
     "node"
   ],
@@ -28,5 +28,8 @@
   ],
   "dependencies": {
     "angular": "^1.5.3"
+  },
+  "dev-dependencies": {
+    "angular-mocks": "^1.5.3"
   }
 }
