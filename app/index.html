@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="tutorialApplication" ng-controller="PhoneListController">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title ng-bind-template="Google Phone Gallery: {{query}}">Google Phone Gallery</title>
     <script type="application/javascript" src="bower_components/angular/angular.js"></script>
     <script type="application/javascript" src="js/controllers.js"></script>
 </head>
-<body ng-app="tutorialApplication">
-<div ng-controller="PhoneListController">
+<body >
+<div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
