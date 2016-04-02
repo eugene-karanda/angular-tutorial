@@ -4,7 +4,7 @@
 
 var tutorialApplication = angular.module('tutorialApplication', []);
 
-tutorialApplication.controller('phoneListController', function ($scope) {
+tutorialApplication.controller('PhoneListController', function ($scope) {
     $scope.phones = [
         {
             'name': 'Nexus S',
