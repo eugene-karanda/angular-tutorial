@@ -8,13 +8,25 @@
 </head>
 <body ng-app="tutorialApplication">
 <div ng-controller="phoneListController">
-    <ul>
-        <li ng-repeat="phone in phones">
-            <span>{{phone.name}}</span>
-            <p>{{phone.snippet}}</p>
-        </li>
-    </ul>
-    <p>Total number of phones: {{phones.length}}</p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <label>
+                    Search:
+                    <input ng-model="query">
+                </label>
+            </div>
+            <div class="col-md-10">
+                <ul>
+                    <li ng-repeat="phone in phones | filter:query as filtered">
+                        <span>{{phone.name}}</span>
+                        <p>{{phone.snippet}}</p>
+                    </li>
+                </ul>
+                <p>Total number of phones: {{filtered.length}}</p>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
