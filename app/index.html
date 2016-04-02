@@ -1,29 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="tutorialApplication" ng-controller="PhoneListController">
+<html lang="en" ng-app="tutorialApplication" ng-controller="PhoneListController" xmlns="http://www.w3.org/1999/html">
 <head>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <meta charset="UTF-8">
     <title>{{title}}</title>
     <script type="application/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="application/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="application/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="application/javascript" src="js/controllers.js"></script>
 </head>
-<body >
-<div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <label>
-                    Search:
-                    <input ng-model="query">
-                </label>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1>Phone Gallery</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-group stylish-input-group">
+                <input class="form-control" ng-model="query" placeholder="Search">
+                <i class="glyphicon glyphicon-search form-control-feedback"></i>
             </div>
-            <div class="col-md-10">
-                <ul>
-                    <li ng-repeat="phone in phones | filter:query as filtered">
-                        <span>{{phone.name}}</span>
-                        <p>{{phone.snippet}}</p>
-                    </li>
-                </ul>
-                <p>Total number of phones: {{filtered.length}}</p>
+        </div>
+        <div class="col-md-9">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="phone in phones | filter:query as filtered">
+                    <strong>{{phone.name}}</strong>
+                    <p>{{phone.snippet}}</p>
+                </li>
+            </ul>
+            <div>
+                <h4>
+                    <small>Total number of phones: {{filtered.length}}</small>
+                </h4>
             </div>
         </div>
     </div>

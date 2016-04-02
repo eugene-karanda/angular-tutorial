@@ -31,5 +31,8 @@
   },
   "dev-dependencies": {
     "angular-mocks": "^1.5.3"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.6"
   }
 }
