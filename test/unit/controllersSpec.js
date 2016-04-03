@@ -2,15 +2,25 @@
  * Created by eugene.karanda on 02.04.2016.
  */
 
-describe('PhoneListController', function () {
+describe('Controllers', function () {
 
-    beforeEach(module('tutorialApplication'));
+    describe('PhoneListController', function () {
+        var scope;
+        var controller;
 
-    it('should create "phones" model with 3 phones', inject(function ($rootScope, $controller) {
-        var scope = $rootScope.$new();
-        $controller('PhoneListController', {$scope: scope});
+        beforeEach(module('tutorialApplication'));
 
-        expect(scope.phones.length).toBe(3);
-    }));
+        beforeEach(inject(function ($rootScope, $controller) {
+            scope = $rootScope.$new();
+            controller = $controller('PhoneListController', {$scope: scope});
+        }));
 
+        it('should create "phones" model with 3 phones', function () {
+            expect(scope.phones.length).toBe(3);
+        });
+
+        it('should set the default value of orderProp model', function() {
+            expect(scope.orderProperty).toBe('age');
+        });
+    });
 });
