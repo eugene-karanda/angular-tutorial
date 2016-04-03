@@ -16,13 +16,13 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <div class="input-group stylish-input-group">
+            <div class="input-group col-md-12">
                 <input class="form-control" ng-model="query" placeholder="Search">
-                <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
             </div>
-            <div>
-                Sort by:
-                <select ng-model="orderProperty">
+            <div class="form-group">
+                <label for="order">Sort by:</label>
+                <select id="order" class="form-control" ng-model="orderProperty">
                     <option value="age">Newest</option>
                     <option value="name">Alphabetical</option>
                 </select>
