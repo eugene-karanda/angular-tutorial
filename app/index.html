@@ -20,10 +20,17 @@
                 <input class="form-control" ng-model="query" placeholder="Search">
                 <i class="glyphicon glyphicon-search form-control-feedback"></i>
             </div>
+            <div>
+                Sort by:
+                <select ng-model="orderProperty">
+                    <option value="age">Newest</option>
+                    <option value="name">Alphabetical</option>
+                </select>
+            </div>
         </div>
         <div class="col-md-9">
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="phone in phones | filter:query as filtered">
+                <li class="list-group-item" ng-repeat="phone in phones | filter:query | orderBy:orderProperty as filtered">
                     <strong>{{phone.name}}</strong>
                     <p>{{phone.snippet}}</p>
                 </li>
