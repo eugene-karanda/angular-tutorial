@@ -20,10 +20,14 @@ phonecatControllers.controller('PhoneListController', function ($scope, $http) {
             $scope.title = 'Phone Gallery';
         }
     });
-    
+
+    $scope.goToPage = function(pageNumber) {
+      $scope.currentPage = pageNumber;
+    };
+
     $scope.orderProperty = 'age';
 });
 
-phonecatControllers.controller('PhoneDetailCtrl', function($scope, $routeParams) {
+phonecatControllers.controller('PhoneDetailController', function($scope, $routeParams) {
     $scope.phoneId = $routeParams.phoneId;
 });

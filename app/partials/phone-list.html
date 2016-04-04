@@ -14,16 +14,16 @@
     </div>
     <div class="col-md-9">
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="phone in phones | filter:query | orderBy:orderProperty as filtered">
+            <li class="list-group-item" ng-repeat="phone in phones | filter:query | orderBy:orderProperty | paginal:currentPage:perPage as filtered">
                 <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"></a>
                 <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
                 <p>{{phone.snippet}}</p>
             </li>
         </ul>
-        <div>
-            <h4>
-                <small>Total number of phones: {{filtered.length}}</small>
-            </h4>
-        </div>
+        <ul class="pagination">
+            <li ng-repeat="pageNumber in [] | range:pageCount" ng-class="pageNumber == currentPage ? 'active':''">
+                <a ng-href='#phones' ng-click="goToPage(pageNumber)">{{pageNumber+1}}</a>
+            </li>
+        </ul>
     </div>
 </div>
