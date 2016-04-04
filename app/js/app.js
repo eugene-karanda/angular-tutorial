@@ -3,5 +3,6 @@
  */
 
 var tutorialApplication = angular.module('tutorialApplication', [
-    'phonecatControllers'
+    'phonecatControllers',
+    'phonecatFilters'
 ]);
