@@ -5,8 +5,12 @@
 var phonecatControllers = angular.module('phonecatControllers', []);
 
 phonecatControllers.controller('PhoneListController', function ($scope, $http) {
+    $scope.perPage = 5;
+    $scope.currentPage = 0;
+    
     $http.get('phones/phones.json').success(function (data) {
         $scope.phones = data;
+        $scope.pageCount = Math.ceil(data.length / $scope.perPage);
     });
 
     $scope.$watch('query', function (newValue) {

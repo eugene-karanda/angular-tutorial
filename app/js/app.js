@@ -4,7 +4,8 @@
 
 var tutorialApplication = angular.module('tutorialApplication', [
     'ngRoute',
-    'phonecatControllers'
+    'phonecatControllers',
+    'phonecatFilters'
 ]);
 
 tutorialApplication.config(function ($routeProvider) {
