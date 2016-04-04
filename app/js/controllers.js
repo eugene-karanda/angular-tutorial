@@ -2,11 +2,9 @@
  * Created by eugene.karanda on 02.04.2016.
  */
 
-var tutorialApplication = angular.module('tutorialApplication', []);
+var phonecatControllers = angular.module('phonecatControllers', []);
 
-tutorialApplication.controller('PhoneListController', function ($scope, $http) {
-    $scope.perPage = 5;
-
+phonecatControllers.controller('PhoneListController', function ($scope, $http) {
     $http.get('phones/phones.json').success(function (data) {
         $scope.phones = data;
     });
@@ -20,16 +18,4 @@ tutorialApplication.controller('PhoneListController', function ($scope, $http) {
     });
     
     $scope.orderProperty = 'age';
-});
-
-tutorialApplication.filter('range', function() {
-    return function(input, total) {
-        total = parseInt(total);
-
-        for (var i=0; i<total; i++) {
-            input.push(i);
-        }
-
-        return input;
-    };
 });
