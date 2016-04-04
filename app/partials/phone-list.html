@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="input-group col-md-12">
+            <input class="form-control" ng-model="query" placeholder="Search">
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+        <div class="form-group">
+            <label for="order">Sort by:</label>
+            <select id="order" class="form-control" ng-model="orderProperty">
+                <option value="age">Newest</option>
+                <option value="name">Alphabetical</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="phone in phones | filter:query | orderBy:orderProperty as filtered">
+                <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"></a>
+                <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+                <p>{{phone.snippet}}</p>
+            </li>
+        </ul>
+        <div>
+            <h4>
+                <small>Total number of phones: {{filtered.length}}</small>
+            </h4>
+        </div>
+    </div>
+</div>

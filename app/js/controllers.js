@@ -19,3 +19,7 @@ phonecatControllers.controller('PhoneListController', function ($scope, $http) {
     
     $scope.orderProperty = 'age';
 });
+
+phonecatControllers.controller('PhoneDetailCtrl', function($scope, $routeParams) {
+    $scope.phoneId = $routeParams.phoneId;
+});
