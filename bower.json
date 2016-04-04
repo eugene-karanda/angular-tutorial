@@ -27,12 +27,12 @@
     "test"
   ],
   "dependencies": {
-    "angular": "^1.5.3"
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.2"
   },
   "dev-dependencies": {
     "angular-mocks": "^1.5.3"
-  },
-  "devDependencies": {
-    "bootstrap": "^3.3.6"
   }
 }
