@@ -13,9 +13,9 @@
         </div>
     </div>
     <div class="col-md-9">
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="phone in phones | filter:query | orderBy:orderProperty | paginal:currentPage:perPage as filtered">
-                <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"></a>
+        <ul class="phones list-group">
+            <li class="thumbnail list-group-item" ng-repeat="phone in phones | filter:query | orderBy:orderProperty | paginal:currentPage:perPage as filtered">
+                <a class="thumb" href="#/phones/{{phone.id}}"><img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"></a>
                 <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
                 <p>{{phone.snippet}}</p>
             </li>
