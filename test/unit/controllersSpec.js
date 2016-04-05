@@ -4,10 +4,10 @@
 
 describe('Controllers', function () {
 
+    beforeEach(module('phonecatControllers'));
+    
     describe('PhoneListController', function () {
         var scope, controller, $httpBackend;
-
-        beforeEach(module('tutorialApplication'));
 
         beforeEach(inject(function (_$httpBackend_, $rootScope, $controller) {
             $httpBackend = _$httpBackend_;
@@ -28,6 +28,22 @@ describe('Controllers', function () {
 
         it('should set the default value of orderProp model', function() {
             expect(scope.orderProperty).toBe('age');
+        });
+    });
+
+    describe('PhoneDetailController', function() {
+        var scope, controller, routeParam = {phoneId: 'nexus'};
+        
+        beforeEach(inject(function ($rootScope, $controller) {
+            scope = $rootScope.$new();
+            controller = $controller('PhoneDetailController', {
+                $scope: scope,
+                $routeParams: routeParam
+            });
+        }));
+
+        it('route param must be saved in scope', function () {
+            expect(scope.phoneId).toBe('nexus');
         });
     });
 });
