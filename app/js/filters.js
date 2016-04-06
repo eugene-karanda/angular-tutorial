@@ -34,6 +34,10 @@ phonecatFilters.filter('range', function () {
 
 phonecatFilters.filter('paginal', function () {
     return function (input, pageNumber, countInPage) {
+        if(input === undefined) {
+            return input;
+        }
+
         if(!Array.isArray(input)) {
             throw new Error('input must have array type');
         }

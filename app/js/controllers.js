@@ -4,6 +4,22 @@
 
 var phonecatControllers = angular.module('phonecatControllers', []);
 
+phonecatControllers.controller('TitleController', function ($scope) {
+    $scope.setTitlePrefix = function (prefix) {
+        if(prefix) {
+            $scope.title = 'Phone Gallery: ' + prefix;
+        } else {
+            $scope.title = 'Phone Gallery';
+        }
+    };
+
+    $scope.setTitlePrefix('');
+
+    $scope.$on('changeTitlePrefix', function (event, args) {
+        $scope.setTitlePrefix(args);
+    });
+});
+
 phonecatControllers.controller('PhoneListController', function ($scope, $http) {
     $scope.perPage = 5;
     $scope.currentPage = 0;
@@ -13,12 +29,8 @@ phonecatControllers.controller('PhoneListController', function ($scope, $http) {
         $scope.pageCount = Math.ceil(data.length / $scope.perPage);
     });
 
-    $scope.$watch('query', function (newValue) {
-        if(newValue) {
-            $scope.title = 'Phone Gallery: ' + newValue;
-        } else {
-            $scope.title = 'Phone Gallery';
-        }
+    $scope.$watch('query', function (query) {
+        $scope.$emit('changeTitlePrefix', query);
     });
 
     $scope.goToPage = function(pageNumber) {
