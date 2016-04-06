@@ -9,7 +9,7 @@ describe('Tutorial Application', function() {
         beforeEach(function() {
             browser.get('index.html');
         });
-        
+
         var query = element(by.model('query'));
         var phoneNameColumn = element.all(by.repeater('phone in phones').column('phone.name'));
 
@@ -41,6 +41,18 @@ describe('Tutorial Application', function() {
                 "MOTOROLA XOOM\u2122",
                 "Motorola XOOM\u2122 with Wi-Fi"
             ]);
+        });
+    });
+
+    describe('Phone detail view', function() {
+
+        beforeEach(function() {
+            browser.get('index.html#/phones/nexus-s');
+        });
+
+
+        it('should display nexus-s page', function() {
+            expect(element(by.binding('phone.name')).getText()).toBe('Nexus S');
         });
     });
 });

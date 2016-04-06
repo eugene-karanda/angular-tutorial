@@ -31,19 +31,25 @@ describe('Controllers', function () {
         });
     });
 
-    describe('PhoneDetailController', function() {
-        var scope, controller, routeParam = {phoneId: 'nexus'};
-        
-        beforeEach(inject(function ($rootScope, $controller) {
+    describe('PhoneDetailController', function(){
+        var scope, $httpBackend, controller, routeParams = {phoneId: 'xyz'};
+
+        beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
+            $httpBackend = _$httpBackend_;
+            $httpBackend.expectGET('phones/xyz.json').respond({name:'phone xyz'});
+
             scope = $rootScope.$new();
             controller = $controller('PhoneDetailController', {
                 $scope: scope,
-                $routeParams: routeParam
+                $routeParams: routeParams
             });
         }));
 
-        it('route param must be saved in scope', function () {
-            expect(scope.phoneId).toBe('nexus');
+        it('should fetch phone detail', function() {
+            expect(scope.phone).toBeUndefined();
+            $httpBackend.flush();
+
+            expect(scope.phone).toEqual({name:'phone xyz'});
         });
     });
 });
