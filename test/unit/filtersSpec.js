@@ -46,4 +46,13 @@ describe('Filters', function () {
             expect(paginalFilter([0, 1, 2, 3, 4, 5], 1, 2)).toEqual([2, 3])
         }))
     });
+
+    describe('checkmark', function() {
+
+        it('should convert boolean values to unicode checkmark or cross',
+            inject(function(checkmarkFilter) {
+                expect(checkmarkFilter(true)).toBe('\u2713');
+                expect(checkmarkFilter(false)).toBe('\u2718');
+            }));
+    });
 });
