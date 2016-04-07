@@ -32,11 +32,22 @@ describe('Controllers', function () {
     });
 
     describe('PhoneDetailController', function(){
-        var scope, $httpBackend, controller, routeParams = {phoneId: 'xyz'};
+        var scope, $httpBackend, controller;
+
+        var routeParams = {
+            phoneId: 'xyz'
+        };
+
+        var xyzPhoneData = function () {
+            return {
+                name:'phone xyz',
+                images: ['image/url1.png', 'image/url2.png']
+            }
+        };
 
         beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('phones/xyz.json').respond({name:'phone xyz'});
+            $httpBackend.expectGET('phones/xyz.json').respond(xyzPhoneData());
 
             scope = $rootScope.$new();
             controller = $controller('PhoneDetailController', {
@@ -49,7 +60,7 @@ describe('Controllers', function () {
             expect(scope.phone).toBeUndefined();
             $httpBackend.flush();
 
-            expect(scope.phone).toEqual({name:'phone xyz'});
+            expect(scope.phone).toEqual((xyzPhoneData()));
         });
     });
 });
