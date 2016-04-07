@@ -8,7 +8,7 @@ AngularJS tutorial implementation for https://docs.angularjs.org/tutorial.
     cd angular-tutorial
 
 ## Installation
-For build application u must install [npm](https://www.npmjs.com). 
+For build application you must install [npm](https://www.npmjs.com). 
 
 ## Run application
 For run application execute:
