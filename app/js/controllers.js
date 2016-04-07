@@ -20,13 +20,14 @@ phonecatControllers.controller('TitleController', function ($scope) {
     });
 });
 
-phonecatControllers.controller('PhoneListController', function ($scope, $http) {
+phonecatControllers.controller('PhoneListController', function ($scope, Phone) {
     $scope.perPage = 5;
     $scope.currentPage = 0;
-    
-    $http.get('phones/phones.json').success(function (data) {
-        $scope.phones = data;
-        $scope.pageCount = Math.ceil(data.length / $scope.perPage);
+    $scope.pageCount = 1;
+
+    $scope.phones = Phone.query();
+    $scope.phones.$promise.then( function (phones) {
+        $scope.pageCount = Math.ceil(phones.length / $scope.perPage);
     });
 
     $scope.$watch('query', function (query) {
@@ -40,13 +41,12 @@ phonecatControllers.controller('PhoneListController', function ($scope, $http) {
     $scope.orderProperty = 'age';
 });
 
-phonecatControllers.controller('PhoneDetailController', function($scope, $routeParams, $http) {
-    $http.get('phones/' + $routeParams.phoneId + '.json').success(function(data) {
-        $scope.phone = data;
-        $scope.mainImageUrl = data.images[0];
-        
-        $scope.setImage = function (imageUrl) {
-            $scope.mainImageUrl = imageUrl;
-        }
+phonecatControllers.controller('PhoneDetailController', function($scope, $routeParams, Phone) {
+    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function (phone) {
+        $scope.mainImageUrl = phone.images[0];
     });
+
+    $scope.setImage = function (imageUrl) {
+        $scope.mainImageUrl = imageUrl;
+    }
 });
